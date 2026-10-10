@@ -1,0 +1,32 @@
+<div id="apply" className="bg-white p-6 rounded-2xl shadow-xl mt-6">
+  <h3 className="font-bold">Vérification</h3>
+  
+  <label className="mt-3 block text-sm">Numéro Orange / MoMo (Cameroun)</label>
+  <input 
+    value={phone}
+    onChange={e=>setPhone(e.target.value)}
+    placeholder="6XXXXXXXX"
+    className="w-full border p-3 rounded mt-1"
+  />
+  <button onClick={sendOtp} className="mt-2 text-sm bg-black text-white px-4 py-2 rounded">
+    Envoyer code OTP
+  </button>
+
+  {otpSent && (
+    <>
+      <label className="mt-4 block text-sm">Code OTP reçu par SMS</label>
+      <input 
+        value={otp}
+        onChange={e=>setOtp(e.target.value)}
+        placeholder="123456"
+        className="w-full border p-3 rounded mt-1"
+      />
+      <p className="text-xs text-gray-500 mt-2">
+        Le code PIN Orange Money sera demandé sur la page sécurisée d'Orange, pas ici.
+      </p>
+      <button className="w-full bg-[#ff7900] text-white p-3 rounded-xl mt-4 font-bold">
+        Vérifier & Continuer vers Paiement Orange →
+      </button>
+    </>
+  )}
+</div>
